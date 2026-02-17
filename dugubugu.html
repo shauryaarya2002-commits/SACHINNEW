@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f6f6f6;
+}
+
+.container{
+  background:#fff;
+  padding:30px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.15);
+  width:320px;
+}
+
+.gif_container img{
+  width:200px;
+  margin-bottom:20px;
+}
+
+h1{
+  margin-bottom:20px;
+  font-size:22px;
+}
+
+.buttons{
+  position:relative;
+  height:60px;
+}
+
+button{
+  padding:10px 25px;
+  font-size:16px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.yes-button{
+  background:#ff4d6d;
+  color:#fff;
+}
+
+.no-button{
+  background:#ddd;
+  position:absolute;
+  left:120px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+  <div class="gif_container">
+    <img src="https://media.tenor.com/2roX3uxz_68AAAAC/bubu-dudu.gif">
+  </div>
+
+  <h1>Will you be my Valentine?</h1>
+
+  <div class="buttons">
+    <button class="yes-button" id="yesBtn">Yes</button>
+    <button class="no-button" id="noBtn">No</button>
+  </div>
+</div>
+
+<script>
+const yesBtn = document.getElementById("yesBtn");
+const noBtn  = document.getElementById("noBtn");
+const main   = document.getElementById("main");
+
+yesBtn.addEventListener("click", () => {
+  main.innerHTML = `
+    <div class="gif_container">
+      <img src="https://media.tenor.com/2roX3uxz_68AAAAC/bubu-dudu.gif">
+    </div>
+    <h1>Yay! I knew it ❤️</h1>
+  `;
+});
+
+function moveNo(){
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 80 - 40;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
+}
+
+noBtn.addEventListener("mouseover", moveNo);   // desktop
+noBtn.addEventListener("click", moveNo);       // mobile
+noBtn.addEventListener("touchstart", moveNo); // mobile fix
+</script>
+
+</body>
+</html>
